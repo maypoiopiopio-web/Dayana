@@ -1,0 +1,922 @@
+/* ==========================================
+   VARIABLES
+========================================== */
+
+:root {
+    --black: #090909;
+    --dark: #111111;
+    --red: #9b111e;
+    --red-dark: #5c0f17;
+    --silver: #d9d9d9;
+    --silver-light: #f3f3f3;
+    --white: #ffffff;
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    background: radial-gradient(circle at top, #1b1b1b, #090909);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   FONDO DE PARTICULAS
+========================================== */
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ==========================================
+   PORTADA
+========================================== */
+
+.hero {
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.7)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.xv-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18rem;
+    font-family: 'Cinzel', serif;
+    color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.subtitle {
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--silver);
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 7rem;
+    font-family: 'Parisienne', cursive;
+    color: var(--white);
+}
+
+.hero h2 {
+    margin-top: 10px;
+    letter-spacing: 4px;
+    color: var(--silver);
+    font-weight: 300;
+}
+
+.shine-line {
+    width: 220px;
+    height: 2px;
+    margin: 30px auto;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--silver),
+        transparent
+    );
+}
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+.discover-btn,
+.confirm-btn,
+.location-btn,
+#musicButton {
+
+    position: relative;
+    overflow: hidden;
+
+    border: none;
+    cursor: pointer;
+
+    padding: 16px 40px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        var(--silver),
+        var(--white)
+    );
+
+    color: #111;
+
+    font-weight: 600;
+
+    transition: 0.4s;
+}
+
+.discover-btn:hover,
+.confirm-btn:hover,
+.location-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.25);
+}
+
+.discover-btn::before,
+.confirm-btn::before,
+.location-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60px;
+    height: 100%;
+
+    background: rgba(255,255,255,0.6);
+
+    transform: skewX(-25deg);
+}
+
+.discover-btn:hover::before,
+.confirm-btn:hover::before,
+.location-btn:hover::before {
+
+    left: 120%;
+    transition: 1s;
+}
+
+/* ==========================================
+   BOTON MUSICA
+========================================== */
+
+#musicButton {
+
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 999;
+
+    padding: 14px 24px;
+}
+
+/* ==========================================
+   SECCIONES GENERALES
+========================================== */
+
+.section,
+.glass-section,
+.special-message,
+.confirmation,
+.sponsors {
+
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.section h2,
+.glass-section h2,
+.confirmation h2,
+.sponsors h2 {
+
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+
+    color: var(--silver);
+
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   EFECTO CRISTAL
+========================================== */
+
+.glass-card,
+.glass-section,
+.sponsor-card,
+.message-card {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 50px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 8px 40px rgba(0,0,0,0.4);
+}
+
+/* ==========================================
+   INTRODUCCION
+========================================== */
+
+.intro-photo {
+
+    width: 420px;
+    max-width: 90%;
+
+    border-radius: 25px;
+
+    margin-bottom: 30px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro p {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 2;
+}
+
+/* ==========================================
+   FOTOS DISPERSAS
+========================================== */
+
+.single-photo {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 100px 20px;
+}
+
+.photo-large {
+
+    width: 700px;
+    max-width: 90%;
+
+    border-radius: 25px;
+}
+
+.photo-medium {
+
+    width: 500px;
+    max-width: 90%;
+
+    border-radius: 25px;
+}
+
+.photo-right-section {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding: 100px 10%;
+}
+
+.photo-left-section {
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    padding: 100px 10%;
+}
+
+.photo-right,
+.photo-left,
+.photo-tilted {
+
+    width: 420px;
+    max-width: 90%;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.12);
+}
+
+.photo-tilted {
+    transform: rotate(-6deg);
+}
+/* ==========================================
+   CUENTA REGRESIVA
+========================================== */
+
+.countdown-section{
+
+    padding:120px 20px;
+    text-align:center;
+
+}
+
+.countdown{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-top:50px;
+
+}
+
+.time-circle{
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.15),
+        rgba(255,255,255,.03)
+    );
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,.12),
+    inset 0 0 20px rgba(255,255,255,.08);
+
+}
+
+.time-circle span{
+
+    font-size:3rem;
+    font-weight:700;
+    color:white;
+
+}
+
+.time-circle small{
+
+    color:var(--silver);
+    letter-spacing:2px;
+    margin-top:8px;
+
+}
+
+/* ==========================================
+   FECHA
+========================================== */
+
+.date-section{
+
+    text-align:center;
+    padding:140px 20px;
+
+}
+
+.date-top,
+.date-bottom{
+
+    display:block;
+
+    font-family:'Cinzel',serif;
+
+    color:var(--silver);
+
+    letter-spacing:8px;
+
+}
+
+.date-number{
+
+    font-size:12rem;
+
+    font-family:'Cinzel',serif;
+
+    color:white;
+
+    line-height:1;
+
+    margin:20px 0;
+
+    text-shadow:
+    0 0 20px rgba(255,255,255,.25),
+    0 0 50px rgba(255,255,255,.10);
+
+    position:relative;
+
+}
+
+.date-number::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:50%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.7),
+        transparent
+    );
+
+    animation:shineNumber 5s infinite;
+
+}
+
+@keyframes shineNumber{
+
+    100%{
+
+        left:200%;
+
+    }
+
+}
+
+/* ==========================================
+   EVENTOS
+========================================== */
+
+.event-hour{
+
+    font-size:2rem;
+
+    color:white;
+
+    margin:20px 0;
+
+    font-weight:600;
+
+}
+
+.glass-section p{
+
+    margin:10px 0;
+
+    color:#d8d8d8;
+
+}
+
+/* ==========================================
+   PADRINOS
+========================================== */
+
+.sponsor-card p{
+
+    font-size:1.3rem;
+
+    margin:15px 0;
+
+    color:white;
+
+}
+
+/* ==========================================
+   MENSAJE
+========================================== */
+
+.message-card{
+
+    max-width:800px;
+
+}
+
+.message-card p{
+
+    line-height:2.1;
+
+    font-size:1.1rem;
+
+}
+
+/* ==========================================
+   CONFIRMACION
+========================================== */
+
+.confirmation{
+
+    background:
+    linear-gradient(
+        180deg,
+        transparent,
+        rgba(155,17,30,.25)
+    );
+
+}
+
+.confirmation p{
+
+    max-width:650px;
+
+    margin:20px auto 40px auto;
+
+    line-height:2;
+
+    color:#d9d9d9;
+
+}
+
+/* ==========================================
+   FOTO FINAL
+========================================== */
+
+.ending{
+    position:relative;
+    min-height:100svh;
+    overflow:hidden;
+}
+
+.ending-photo{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.ending-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.2),
+        rgba(0,0,0,.6)
+    );
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.ending-overlay h2{
+
+    font-family:'Cinzel',serif;
+
+    font-size:3rem;
+
+    max-width:800px;
+
+    color:white;
+
+    text-shadow:
+    0 0 20px rgba(255,255,255,.2);
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    padding:60px 20px;
+
+    text-align:center;
+
+    background:#050505;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+
+}
+
+footer p{
+
+    font-family:'Parisienne',cursive;
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+footer span{
+
+    color:#999;
+
+}
+
+/* ==========================================
+   ANIMACIONES GENERALES
+========================================== */
+
+.hero-content{
+
+    animation:fadeUp 2s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   EFECTO GLOW
+========================================== */
+
+.hero h1,
+.date-number{
+
+    animation:glowPulse 4s infinite;
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+
+        text-shadow:
+        0 0 10px rgba(255,255,255,.1);
+
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 35px rgba(255,255,255,.35);
+
+    }
+
+    100%{
+
+        text-shadow:
+        0 0 10px rgba(255,255,255,.1);
+
+    }
+
+}
+
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(60px);
+
+    transition:
+    all 1.3s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+/* ==========================================
+   PARTICULAS BRILLANTES
+========================================== */
+
+.sparkle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+    0 0 10px white,
+    0 0 20px white;
+
+    animation:
+    sparkleFloat linear forwards;
+
+}
+
+@keyframes sparkleFloat{
+
+    from{
+
+        transform:
+        translateY(-20px);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translateY(110vh);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .hero h1{
+
+        font-size:4.5rem;
+
+    }
+
+    .hero h2{
+
+        font-size:1rem;
+
+    }
+
+    .xv-watermark{
+
+        font-size:10rem;
+
+    }
+
+    .date-number{
+
+        font-size:7rem;
+
+    }
+
+    .time-circle{
+
+        width:120px;
+        height:120px;
+
+    }
+
+    .time-circle span{
+
+        font-size:2rem;
+
+    }
+
+    .section h2,
+    .glass-section h2,
+    .confirmation h2{
+
+        font-size:2rem;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero h1{
+
+        font-size:3.5rem;
+
+    }
+
+    .date-number{
+
+        font-size:5rem;
+
+    }
+
+    .time-circle{
+
+        width:95px;
+        height:95px;
+
+    }
+
+    .time-circle span{
+
+        font-size:1.5rem;
+
+    }
+
+    .photo-large,
+    .photo-medium,
+    .photo-left,
+    .photo-right,
+    .photo-tilted{
+
+        width:95%;
+
+    }
+
+}
+@media(max-width:768px){
+
+    .photo-final{
+
+        width:90%;
+
+        max-width:100%;
+
+        height:auto;
+
+        display:block;
+
+        margin:auto;
+
+    }
+
+}
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
